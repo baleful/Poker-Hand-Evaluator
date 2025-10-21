@@ -29,8 +29,8 @@ public class PokerCard {
 	 */
 	private void encode() {
 		// Convert the 1-based, Ace-low ranking to 0-based, ace-high
-		int index = rank.getRank() - 2;
-		int suitIntValue = suit.getIntValue();
+		var index = rank.getRank() - 2;
+		var suitIntValue = suit.getIntValue();
 
 		encodedValue = Primes.values()[index] | (index << 8) | suitIntValue
 				| (1 << (16 + index));
@@ -84,8 +84,8 @@ public class PokerCard {
 	 * @return The represented card.
 	 */
 	public static PokerCard parse(String cardAsString) {
-		Suit suit = Suit.parse(cardAsString.charAt(0));
-		Rank rank = Rank.parse(cardAsString.charAt(1));
+		var suit = Suit.parse(cardAsString.charAt(0));
+		var rank = Rank.parse(cardAsString.charAt(1));
 
 		return new PokerCard(rank, suit);
 	}

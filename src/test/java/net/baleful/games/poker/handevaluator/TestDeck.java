@@ -15,9 +15,9 @@ public class TestDeck {
 	static {
 		deck = new HashMap<String, PokerCard>();
 		
-		for (int cnt = Rank.MIN_RANK; cnt <= Rank.MAX_RANK; cnt++) {
-			for (Suit suit : Suit.values()) {
-				PokerCard card = new PokerCard(new Rank(cnt), suit);
+		for (var cnt = Rank.MIN_RANK; cnt <= Rank.MAX_RANK; cnt++) {
+			for (var suit : Suit.values()) {
+				var card = new PokerCard(new Rank(cnt), suit);
 				
 				deck.put(card.toString(), card);
 			}
@@ -34,7 +34,7 @@ public class TestDeck {
 	}
 	
 	public static PokerCard[] getShuffledFullDeck() {
-		List<PokerCard> cards = new ArrayList<PokerCard>(deck.values());
+		var cards = new ArrayList<>(deck.values());
 		
 		Collections.shuffle(cards);
 		
@@ -47,7 +47,7 @@ public class TestDeck {
 			                               String id3,
 			                               String id4)
 	{
-		PokerCard[] ret = new PokerCard[5];
+		var ret = new PokerCard[5];
 		
 		ret[0] = getCard(id0);
 		ret[1] = getCard(id1);
