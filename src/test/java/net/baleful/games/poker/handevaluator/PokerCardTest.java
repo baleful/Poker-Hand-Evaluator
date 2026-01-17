@@ -1,25 +1,23 @@
 package net.baleful.games.poker.handevaluator;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import net.baleful.games.poker.handevaluator.PokerCard;
 import net.baleful.games.poker.handevaluator.Rank;
 import net.baleful.games.poker.handevaluator.Suit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class PokerCardTest {
 
-	@Test
-	public void testAceofSpades() {
-		PokerCard card = new PokerCard(Rank.parse('A'), Suit.SPADE);
+    @Test
+    public void testAceofSpades() {
+        var card = new PokerCard(Rank.parse('A'), Suit.SPADE);
+        assertEquals(268442665, card.getEncodedValue(), "Encoded value incorrect for the ace of Spades");
+    }
 
-		assertEquals("Encoded value incorred for the ace of Spades", card.getEncodedValue(), 268442665);
-	}
-
-	@Test
-	public void testTwoofHearts() {
-		PokerCard card = new PokerCard(Rank.parse('2'), Suit.HEART);
-
-		assertEquals("Encoded value incorred for the deuce of Hearts", card.getEncodedValue(), 73730);
-	}
+    @Test
+    public void testTwoofHearts() {
+        var card = new PokerCard(Rank.parse('2'), Suit.HEART);
+        assertEquals(73730, card.getEncodedValue(), "Encoded value incorrect for the deuce of Hearts");
+    }
 }
